@@ -1,30 +1,39 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <Header @show-modal="showModal" />
+    <TaskForm @task-added="addTask" />
+    <TaskBoard :tasks="tasks" />
+    <AuthModal v-if="showAuth" :type="modalType" @close="showAuth = false" />
+  </div>
 </template>
 
+<script>
+import Header from './components/Header.vue';
+import TaskForm from './components/TaskForm.vue';
+import TaskBoard from './components/TaskBoard.vue';
+import AuthModal from './components/AuthModal.vue';
+
+export default {
+  components: { Header, TaskForm, TaskBoard, AuthModal },
+  data() {
+    return {
+      tasks: [],
+      showAuth: false,
+      modalType: ''
+    };
+  },
+  methods: {
+    showModal(type) {
+      this.modalType = type;
+      this.showAuth = true;
+    },
+    addTask(task) {
+      this.tasks.push({ ...task, id: Date.now() });
+    }
+  }
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import './assets/css/style.css';
 </style>

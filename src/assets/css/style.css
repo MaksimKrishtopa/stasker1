@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    font-family: "Roboto", sans-serif; 
+    /* background-image: url(/img/zzzz.png); */
+    background-color: rgba(255,255,255,0.86);
+    background-blend-mode: lighten;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #4e7eb9;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+}
+
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+
+}
+
+
+.task p {
+    word-wrap: break-word; 
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 5px 0;
+}
+
+.task p:first-child {
+    font-weight: 700;
+}
+
+.task {
+    max-width: 100%;
+ 
+}
+
+.task-form input, 
+.task-form textarea, 
+.task-form button {
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #abb1bcb0;
+    border-radius: 5px;
+    text-wrap: wrap;
+    background-color: #fff;
+    color: #4e7eb9;
+}
+
+.task-form button {
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d9ec5;
+    padding: 15px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.task-form button:hover {
+    background-color: #7a90ab;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    gap: 25px; 
+}
+
+.column {
+    background-color: white;
+    border: 2px solid #abb1bcb0;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.column h2 {
+    text-align: center;
+    color: #4e7eb9;
+    font-weight: 500;
+}
+
+.tasks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid #abb1bc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #4e7eb9;
+    max-width: 350px;
+    height: 175px; 
+    overflow: hidden; 
+}
+
+.task__text p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.task__text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.task__btns {
+    display: flex;
+}
+
+.task__btns button {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #4e7eb9;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#editForm input, #editForm textarea, #editForm button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#editForm button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#editForm button:hover {
+    background-color: #4cae4c;
+}
+
+
+
+.task__btns button {
+    background: none; 
+    border: none;    
+    padding: 0;      
+    margin: 0;      
+    font-size: 18px;  
+    cursor: pointer;      
+}
+
+.task__btns button:hover {
+    color: #000; 
+}
+
+.task__btns {
+    gap: 15px;
+}
+
+.task__btns button {
+    font-size: 22px;
+}
+
+
+.edit-button {
+    transform: scaleX(-1); 
+}
+
+.task.important {
+    border: 2px solid #abb1bc;
+    box-shadow: 0 0 10px rgb(149 114 255);
+}
+
+.important-button {
+    color: gold;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.important-button:hover {
+    transform: scale(1.2);
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    /* background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;  */
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px; 
+}
+
+.auth-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #7d9ec5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #7a90ab;
+}
